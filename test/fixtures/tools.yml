@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  serial_number: MyString
+  replacement_cost: 1.5
+  label_color: MyString
+
+two:
+  name: MyString
+  serial_number: MyString
+  replacement_cost: 1.5
+  label_color: MyString

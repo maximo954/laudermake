@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass', '~> 0.98.1'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'slim', '~> 3.0', '>= 3.0.7'
+gem 'pry', '~> 0.10.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
