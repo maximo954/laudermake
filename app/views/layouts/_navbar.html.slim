@@ -1,0 +1,11 @@
+nav
+  .nav-wrapper
+    a.brand-logo href="#"  Laudermake
+    ul#nav-mobile.right.hide-on-med-and-down
+      - if !current_user
+        li
+          = link_to "Sign In", new_user_session_path
+      - if current_user
+        li
+          = link_to "Sign Out", destroy_user_session_path, method: :delete
+      

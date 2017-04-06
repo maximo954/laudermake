@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'materialize-sass', '~> 0.98.1'
 gem 'devise', '~> 4.2', '>= 4.2.1'
+gem 'slim', '~> 3.0', '>= 3.0.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
