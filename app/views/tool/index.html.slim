@@ -1,0 +1,26 @@
+h4
+  | Parts Store
+
+table
+  thead
+    tr
+      th Name
+      th Serial Number
+      th Replacement Cost
+      th Label Color
+      th Renter
+      th Check Out
+      th Action
+  tbody
+    - @tools.each do |t|
+      tr
+        td = t.name
+        td = t.serial_number
+        td = "$#{t.replacement_cost}"
+        td = t.label_color
+        td
+        td = link_to 'Check Out'
+        td 
+          = link_to 'View '
+          = link_to '| Edit'
+    end
