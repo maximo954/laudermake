@@ -18,9 +18,11 @@ table
         td = t.serial_number
         td = "$#{t.replacement_cost}"
         td = t.label_color
-        td
+        td = 
         td = link_to 'Check Out'
         td 
           = link_to 'View '
-          = link_to '| Edit'
+          - if current_user.try(:admin?)
+            = link_to '| Edit'
+          end
     end
