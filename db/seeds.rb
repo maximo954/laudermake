@@ -8,7 +8,7 @@
 
   colors = [ 'black', 'blue', 'green', 'orange', 'red' ]
 
-  user = User.create!(name: "Adam Admin", email: "admin@laudermake.com", password: "sample123")
+  user = User.create!(name: "Adam Admin", email: "admin@laudermake.com", password: "sample123", admin: true)
   user = User.create!(name: "Raj Jamnis", email: "raj123@gmail.com", password: "sample123")
   user = User.create!(name: "Andrew Chung", email: "andrew@hotmail.com", password: "sample123")
   user = User.create!(name: "Mike Smith", email: "mike@smith.com", password: "sample123")
