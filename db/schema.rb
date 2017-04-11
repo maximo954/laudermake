@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408041916) do
+ActiveRecord::Schema.define(version: 20170411054801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rentals", force: :cascade do |t|
+    t.integer  "po"
+    t.integer  "user_id"
+    t.integer  "tool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tool_id"], name: "index_rentals_on_tool_id", using: :btree
+    t.index ["user_id"], name: "index_rentals_on_user_id", using: :btree
+  end
 
   create_table "tools", force: :cascade do |t|
     t.string   "name"
@@ -23,7 +33,8 @@ ActiveRecord::Schema.define(version: 20170408041916) do
     t.integer  "user_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.boolean  "status",           default: false
+    t.boolean  "checked_out",      default: false
+    t.string   "photo"
     t.index ["user_id"], name: "index_tools_on_user_id", using: :btree
   end
 

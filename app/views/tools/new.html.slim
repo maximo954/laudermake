@@ -11,7 +11,10 @@ h4
       = t.text_field :serial_number
     p 
       = t.label :replacement_cost
-      = t.text_field :replacement_cost    
+      = t.text_field :replacement_cost  
+    p
+      | Add image 
+      = t.file_field :photo 
     p 
       .actions.waves-effect.waves-light.btn
         = t.submit

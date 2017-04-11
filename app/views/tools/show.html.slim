@@ -1,0 +1,16 @@
+h4
+  = @tool.name
+  
+p 
+  = image_tag @tool.photo.to_s
+  
+p 
+  | Serial Number:
+  = @tool.serial_number
+
+p 
+  =  "Replacement Cost:   $#{@tool.replacement_cost}"
+  
+p 
+  = "Label Color:   #{@tool.label_color}"
+  

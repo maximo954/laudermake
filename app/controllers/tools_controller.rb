@@ -8,6 +8,10 @@ class ToolsController < ApplicationController
     @tools = Tool.all
   end
 
+  def show
+    @tool = Tool.find(params[:id])
+  end
+
   def new
     @tool = Tool.new
   end
@@ -40,6 +44,6 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :serial_number, :replacement_cost, :label_color, :user_id )
+    params.require(:tool).permit(:name, :serial_number, :replacement_cost, :label_color, :user_id, :photo )
   end
 end

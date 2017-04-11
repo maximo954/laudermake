@@ -9,6 +9,7 @@ p
 table
   thead
     tr
+      th Photo
       th Name
       th Serial Number
       th Replacement Cost
@@ -19,14 +20,24 @@ table
   tbody
     - @tools.each do |t|
       tr
+        td 
+          - if t.photo
+            = image_tag t.photo.thumb.to_s
+          end
         td = t.name
         td = t.serial_number
         td = "$#{t.replacement_cost}"
         td = t.label_color
-        td = 
-        td = link_to 'Check Out'
         td 
-          = link_to 'View '
+          - if t.rental
+            = t.rental.user.name
+          end
+        td 
+          - if !t.checked_out?
+              = link_to 'Check Out'  
+          end
+        td 
+          = link_to 'View ', tool_path(t)
           - if current_user.try(:admin?)
             = link_to '| Edit ', edit_tool_path(t)
             = link_to '| Delete'

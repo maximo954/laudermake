@@ -35,6 +35,8 @@ gem 'materialize-sass', '~> 0.98.1'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'pry', '~> 0.10.4'
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
