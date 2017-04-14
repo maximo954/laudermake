@@ -52,6 +52,20 @@ class ToolsController < ApplicationController
     redirect_to root_path
   end
 
+  def checked_out_tool
+    @tool = Tool.find(params[:id])
+    @tool.toogle_check
+    @tool.create_rental(tool_id: @tool.id, user_id: current_user.id)
+    redirect_to root_path
+  end
+
+  def return_tool
+    @tool = Tool.find(params[:id])
+    @tool.toogle_check
+    @tool.create_rental(tool_id: nil, user_id: nil)
+    redirect_to root_path
+  end
+
   private
 
   def tool_params

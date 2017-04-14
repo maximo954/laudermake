@@ -16,6 +16,11 @@
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
+.tool-body {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -40px;
+}
 
 a.brand-logo {
   margin-left: 20px;
@@ -27,4 +32,12 @@ nav ul {
 
 nav {
   margin-bottom: 100px;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
 }

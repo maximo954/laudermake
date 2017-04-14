@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def create
     @rental = Rental.new(rental_params)
     @rental.po = 12345

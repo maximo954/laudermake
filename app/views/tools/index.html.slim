@@ -16,6 +16,10 @@ table
       th Label Color
       th Renter
       th Check Out
+      th
+        - if current_user.try(:admin?)
+          | Return
+        end
       th Action
   tbody
     - @tools.each do |t|
@@ -34,7 +38,13 @@ table
           end
         td 
           - if !t.checked_out?
-              = link_to 'Check Out', "", class: 'waves-effect orange-text waves-teal btn-flat'
+            = link_to 'Check Out', {controller: "tools", action: "checked_out_tool", id: t}, method: :post, class: "waves-effect waves-light btn btn-sm"
+          end
+        td 
+          - if current_user.try(:admin?) && t.rental
+            - if t.checked_out?
+              = link_to 'Return', {controller: "tools", action: "return_tool", id: t}, method: :post, class: "waves-effect waves-light btn btn-sm"
+            end
           end
         td 
           = link_to 'View ', tool_path(t)

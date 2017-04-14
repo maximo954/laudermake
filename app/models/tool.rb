@@ -10,4 +10,8 @@ class Tool < ApplicationRecord
   def tool_checked_out
     update status: !status
   end
+
+  def toogle_check
+    update checked_out: !checked_out
+  end
 end
