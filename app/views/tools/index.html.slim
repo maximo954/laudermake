@@ -38,7 +38,7 @@ table
           end
         td 
           - if !t.checked_out?
-            = link_to 'Check Out', {controller: "tools", action: "checked_out_tool", id: t}, method: :post, class: "waves-effect waves-light btn btn-sm"
+            = link_to 'Rent', {controller: "tools", action: "checked_out_tool", id: t}, method: :post, class: "waves-effect waves-light btn btn-sm"
           end
         td 
           - if current_user.try(:admin?) && t.rental

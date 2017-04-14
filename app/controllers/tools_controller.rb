@@ -5,7 +5,7 @@ class ToolsController < ApplicationController
 
 
   def index
-    @tools = Tool.all
+    @tools = Tool.all.order(created_at: :desc)
   end
 
   def show
@@ -56,7 +56,7 @@ class ToolsController < ApplicationController
     @tool = Tool.find(params[:id])
     @tool.toogle_check
     @tool.create_rental(tool_id: @tool.id, user_id: current_user.id)
-    redirect_to root_path
+    redirect_to root_path, notice: 'You have successfully rent a tool.'
   end
 
   def return_tool
