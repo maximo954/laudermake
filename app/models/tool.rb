@@ -2,6 +2,8 @@ class Tool < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  validates :name, :serial_number, :replacement_cost, presence: true
+
   has_many :users, through: :rentals
   has_one :rental
 

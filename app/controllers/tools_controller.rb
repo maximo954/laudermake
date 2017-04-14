@@ -1,7 +1,7 @@
 class ToolsController < ApplicationController
 
   before_action :authenticate_user!
-
+  before_action :authorize_user!, only: [:new, :create]
 
 
   def index
@@ -22,8 +22,13 @@ class ToolsController < ApplicationController
     @tool = Tool.new(tool_params)
     @tool.user_id = current_user.id
     @tool.label_color = colors.sample
-    @tool.save
-    redirect_to root_path
+    if @tool.save
+      redirect_to root_path,
+      notice: 'You have successfully created a tool.'
+    else
+      render 'new'
+    end
+
   end
 
   def edit
@@ -34,16 +39,28 @@ class ToolsController < ApplicationController
     @tool = Tool.find(params[:id])
     @tool.user_id = current_user.id
     if @tool.update(tool_params)
-
-      redirect_to root_path
+      redirect_to root_path,
+      notice: 'You have successfully updated tool.'
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @tool = Tool.find(params[:id])
+    @tool.destroy
+    redirect_to root_path
   end
 
   private
 
   def tool_params
     params.require(:tool).permit(:name, :serial_number, :replacement_cost, :label_color, :user_id, :photo )
+  end
+
+  def authorize_user!
+    if !current_user || !current_user.admin?
+      redirect_to root_path, notice: "Your permissions do not allow access to this page"
+    end
   end
 end
