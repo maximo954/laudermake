@@ -27,8 +27,8 @@ table
     - @tools.each do |t|
       tr
         td 
-          - if t.photo
-            = image_tag t.photo.thumb.to_s
+          - if t.image
+            = image_tag t.image.thumb.to_s
           end
         td = t.name
         td = t.serial_number

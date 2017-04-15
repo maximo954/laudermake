@@ -1,6 +1,6 @@
 class Tool < ApplicationRecord
 
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :image, PhotoUploader
 
   validates :name, :serial_number, :replacement_cost, presence: true
 
@@ -14,4 +14,5 @@ class Tool < ApplicationRecord
   def toogle_check
     update checked_out: !checked_out
   end
+
 end

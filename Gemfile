@@ -36,8 +36,10 @@ gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'pry', '~> 0.10.4'
 gem 'carrierwave'
+gem 'paperclip'
 gem 'mini_magick'
 gem 'aws-sdk'
+gem "figaro"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,7 +1,7 @@
 class ToolsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :authorize_user!, only: [:new, :create]
+  before_action :authorize_user!, only: [:new, :edit, :create]
 
   def index
     @tools = Tool.all.order(created_at: :desc)
@@ -69,7 +69,7 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :serial_number, :replacement_cost, :label_color, :user_id, :photo )
+    params.require(:tool).permit(:name, :serial_number, :replacement_cost, :label_color, :user_id, :image )
   end
 
   def authorize_user!
