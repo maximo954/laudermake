@@ -28,7 +28,7 @@ table
       tr
         td 
           - if t.image
-            = image_tag t.image.thumb.to_s
+            = image_tag t.image(:thumb)
           end
         td = t.name
         td = t.serial_number
