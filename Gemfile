@@ -37,6 +37,7 @@ gem 'slim', '~> 3.0', '>= 3.0.7'
 gem 'pry', '~> 0.10.4'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'aws-sdk'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

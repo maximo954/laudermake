@@ -3,7 +3,6 @@ class ToolsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!, only: [:new, :create]
 
-
   def index
     @tools = Tool.all.order(created_at: :desc)
   end
@@ -26,7 +25,8 @@ class ToolsController < ApplicationController
       redirect_to root_path,
       notice: 'You have successfully created a tool.'
     else
-      render 'new'
+      render 'new',
+      notice: @tool.errors.messages
     end
 
   end

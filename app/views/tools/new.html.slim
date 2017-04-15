@@ -1,4 +1,10 @@
 .container
+  ul.list
+    - @tool.errors.full_messages.each do |m|
+        li 
+          = m 
+    end
+
   h4
     | Add New Tools
     
@@ -18,3 +24,4 @@
       p 
         .actions.waves-effect.waves-light.btn
           = t.submit
+        = link_to 'Back', root_path, class: ' back-btn actions waves-effect waves-light btn'

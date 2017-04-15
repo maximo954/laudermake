@@ -1,4 +1,10 @@
 .container
+  ul.list
+    - @tool.errors.full_messages.each do |m|
+        li 
+          = m 
+    end
+
   h4
     | Edit Tools
     
@@ -17,4 +23,5 @@
         = t.file_field :photo   
       p 
         .actions.waves-effect.waves-light.btn
-          = t.submit
+          = t.submit class: 'save-btn'
+        = link_to 'Back', root_path, class: ' back-btn actions waves-effect waves-light btn'
