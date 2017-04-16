@@ -52,14 +52,14 @@ class ToolsController < ApplicationController
     redirect_to root_path
   end
 
-  def checked_out_tool
+  def checked_out
     @tool = Tool.find(params[:id])
     @tool.toogle_check
     @tool.create_rental(tool_id: @tool.id, user_id: current_user.id)
     redirect_to root_path, notice: 'You have successfully rent a tool.'
   end
 
-  def return_tool
+  def return
     @tool = Tool.find(params[:id])
     @tool.toogle_check
     @tool.create_rental(tool_id: nil, user_id: nil)

@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'tools#index'
   resources :tools do
     member do
-      post :checked_out_tool
-      post :return_tool
+      post :checked_out
+      post :return
     end
   end
   resources :rentals
-  
+
 end

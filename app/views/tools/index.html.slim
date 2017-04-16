@@ -24,7 +24,7 @@ table
         end
       th Action
   tbody
-    - @tools.each do |t|
+    - @tools.each do  |t|
       tr
         td 
           - if t.image
@@ -40,12 +40,12 @@ table
           end
         td 
           - if !t.checked_out?
-            = link_to 'Rent', {controller: "tools", action: "checked_out_tool", id: t}, method: :post, class: "waves-effect waves-light btn btn-sm"
+            = link_to 'Rent', checked_out_tool_path(t), method: :post, remote: true, class: "rent-btn waves-effect waves-light btn btn-sm"
           end
         td 
           - if current_user.try(:admin?) && t.rental
             - if t.checked_out?
-              = link_to 'Return', {controller: "tools", action: "return_tool", id: t}, method: :post, class: "waves-effect waves-light btn btn-sm"
+              = link_to 'Return', return_tool_path(t), method: :post, remote: true, class: "checkin waves-effect waves-light btn"
             end
           end
         td 
@@ -55,3 +55,15 @@ table
             = link_to '| Delete', tool_path(t), data: { confirm: "Are you sure you want to delete tool?"}, method: :delete
           end
     end
+    
+/ javascript:    
+/   $(document).ready(function(){
+/       $(".rent-btn").click(function(){
+/           $.ajax({
+/             type: "POST",
+/             url: "checked_out",
+/             success: function(){
+/               console.log('I am working')
+/           }});
+/       });
+/   });
