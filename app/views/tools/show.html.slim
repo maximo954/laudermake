@@ -1,24 +1,8 @@
-/ .container
-/   h4
-/     = @tool.name
-/   p
-/     = image_tag @tool.image.to_s , :width => "350x350>"  
-/   p 
-/     | Serial Number:
-/     = @tool.serial_number
-/   p 
-/     =  "Replacement Cost:   $#{@tool.replacement_cost}"
-/   p 
-/     = "Label Color:   #{@tool.label_color}"
-/     
-/   = link_to 'Back', root_path, class: 'actions waves-effect waves-light btn'
-
- 
 .row
   .col.s12.m5.tool-card 
     .card
       .card-image
-        = image_tag @tool.image.to_s
+        = image_tag @tool.image
         
       .card-content
         span.card-title = @tool.name

@@ -40,12 +40,12 @@ table
           end
         td 
           - if !t.checked_out?
-            = link_to 'Rent', checked_out_tool_path(t), method: :post, remote: true, class: "rent-btn waves-effect waves-light btn btn-sm"
+            = link_to 'Rent', checked_out_tool_path(t), method: :post, class: "rent-btn waves-effect waves-light btn btn-sm"
           end
         td 
           - if current_user.try(:admin?) && t.rental
             - if t.checked_out?
-              = link_to 'Return', return_tool_path(t), method: :post, remote: true, class: "checkin waves-effect waves-light btn"
+              = link_to 'Return', return_tool_path(t), method: :post, class: "checkin waves-effect waves-light btn"
             end
           end
         td 
@@ -56,14 +56,3 @@ table
           end
     end
     
-/ javascript:    
-/   $(document).ready(function(){
-/       $(".rent-btn").click(function(){
-/           $.ajax({
-/             type: "POST",
-/             url: "checked_out",
-/             success: function(){
-/               console.log('I am working')
-/           }});
-/       });
-/   });
